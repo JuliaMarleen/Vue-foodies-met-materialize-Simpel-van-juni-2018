@@ -1,0 +1,14 @@
+.active1 {
+    color: rgb(252, 53, 53) !important;
+}
+
+.iconcolor {
+    color: rgba(255, 255, 255, 0.808);
+    cursor: pointer;
+    text-shadow: 0 0 5px rgb(24, 23, 23);
+    transform: rotate(25deg);
+}
+
+.unfavorite{
+    visibility: hidden;
+}

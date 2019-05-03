@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="css/node_modules\materialize-css\dist\css/materialize.min.css"  media="screen,projection"/>
+        <link rel="stylesheet" type="text/css" href="js/vuestyle.css">
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!--jQuery-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+
+    <body class="brown darken-3">
+        <div class="row" style="margin:0;">
+            <div class="brown darken-2" style="background-size: 500px;">
+                <div class="col s12" style="height: 70px;">
+                    <a href="index.html"><img src="img/foodies2.svg" class="left" style="height: 60px; width: 150px; padding-top: 3vh;" alt="logo"></a>
+                    
+                    <div class="input-field col s5">
+                        <i class="material-icons prefix">search</i>
+                        <input type="text" id="autocomplete-input" class="autocomplete">
+                        <label for="autocomplete-input">Zoeken...</label>
+                    </div>
+                  
+
+                    <container class="right" style="padding-top: 1vh;">
+                        <!-- <a class="btn-floating btn-large red pulse right" style="margin-right: 2vw;" href="chili.html"><i class="material-icons">local_bar</i></a> 
+                        <a class="btn-floating btn-large red pulse right" style="margin-right: 1vw;" href="chili.html"><i class="material-icons">lightbulb</i></a> -->
+                        <a class="btn-floating btn-large red pulse right" style="margin-right: 1vw;" href="chili.html"><i class="material-icons">favorite_border</i></a>
+                        <a id="random" href="" class="btn-floating btn-large red pulse right" style="margin-right: 1vw;" v-on:click="showRandom()"><i class="material-icons">loop</i></a>
+                        <a class="btn-floating btn-large red pulse right" style="margin-right: 1vw;" href="index.html"><i class="material-icons">home</i></a>
+                    </container>
+                </div>
+
+                <div id="app-2">
+                    <div id="likes" style="float:left; position:absolute; width: 100%; margin-top: 13vh; z-index: 0; visibility: hidden;">
+                        <a id="heart.id" class="col s6 m4 l3 iconcolor" style="margin-bottom:18vh;"
+                            v-for="item in groceryList" 
+                            v-bind:key="item.id"
+                            v-bind:class="{ active1 : item.state }"
+                            ><i class="medium material-icons" style="z-index: 2; visibility: visible;" v-on:click="like(item.id)">favorite</i><br>  <!--heart {{item.id}} {{item.state}}-->
+                        </a> 
+                    </div>
+                </div>
+
+                <div class="col s6 m4 l3 brown darken-2 hoverable" style="padding: 0;">
+                    <a href="chili.html">
+                        <img id="food_1" class="left" style="height: 29vh; width: 100%;" alt="chili">
+                    </a>
+                </div>
+                <div class="col s6 m4 l3 brown darken-2 hoverable" style="padding: 0;">
+                    <a href="gyros.html">
+                        <img id="food_2" src="" class="left" style="height: 29vh; width: 100%;"  alt="gyros">
+                    </a>
+                </div>
+                <div class="col s6 m4 l3 brown darken-2 hoverable" style="padding: 0;">
+                    <a href="gyros.html">
+                        <img id="food_3" src=" " class="left" style="height: 29vh; width: 100%;"  alt="pizza">
+                </div>
+                <div class="col s6 m4 l3 brown darken-2 hoverable" style="padding: 0;">
+                    <a href="gyros.html">
+                        <img id="food_4" src=" " class="left" style="height: 29vh; width: 100%;"  alt="spaghetti">
+                </div>
+            </div>
+
+            <div class="row" style="margin: 0; z-index: 1;">
+                <div class="col s6 m4 l3 brown darken-2 hoverable" style="padding: 0;">
+                    <a href="gyros.html">
+                        <img id="food_5" src=" " class="left" style="height: 29vh; width: 100%;" alt="logo">
+                </div>
+                <div class="col s6 m4 l3 brown darken-2 hoverable" style="padding: 0;">
+                    <a href="gyros.html">
+                        <img id="food_6" src=" " class="left" style="height: 29vh; width: 100%;"  alt="logo">
+                </div>
+                <div class="col s6 m4 l3 brown darken-2 hoverable" style="padding: 0;">
+                    <img id="food_7" src=" " class="left" style="height: 29vh; width: 100%;"  alt="logo">
+                </div>
+                <div class="col s6 m4 l3 brown darken-2 hoverable" style="padding: 0;">
+                    <img id="food_8" src=" " class="left" style="height: 29vh; width: 100%;"  alt="logo">
+                </div>
+            
+            <div class="row" style="margin: 0;">
+                <div class="col s6 m4 l3 brown darken-2 hoverable" style="padding: 0;">
+                    <a href="gyros.html">
+                        <img id="food_9" src="" class="left" style="height: 29vh; width: 100%;" alt="logo">
+                </div>
+                <div class="col s6 m4 l3 brown darken-2 hoverable" style="padding: 0;">
+                    <a href="gyros.html">
+                        <img id="food_10" src="" class="left" style="height: 29vh; width: 100%;"  alt="logo">
+                </div>
+                <div class="col s6 m4 l3 brown darken-2 hoverable" style="padding: 0;">
+                    <img id="food_11" src="" class="left" style="height: 29vh; width: 100%;"  alt="logo">
+                </div>
+                <div class="col s6 m4 l3 brown darken-2 hoverable" style="padding: 0;">
+                    <img id="food_12" src="" class="left" style="height: 29vh; width: 100%;"  alt="logo">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--JavaScript at end of body for optimized loading-->
+    <script type="text/javascript" src="css/node_modules\materialize-css\dist\js/materialize.min.js"></script>
+    <script src="js/node_modules/vue/dist/vue.min.js"></script>
+    <script type="text/javascript" src="js/vuejavascript.js"></script>
+</body>
+</html>
